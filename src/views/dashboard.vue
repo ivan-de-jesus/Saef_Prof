@@ -4,6 +4,9 @@
       <Card></Card>
 
     </div>
+    <div>
+      <Ranking></Ranking>
+    </div>
 
   </v-row>
   
@@ -12,12 +15,14 @@
 <script>
 // @ is an alias to /src
 import Card from '@/components/Card.vue'
+import Ranking from '../components/Ranking.vue'
 
 export default {
   name: 'dashboard',
   components: {
-    Card
-  },
+    Card,
+    Ranking
+},
 
   data: () => ({
   }),
