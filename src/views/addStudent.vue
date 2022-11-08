@@ -82,8 +82,8 @@
 
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="blue darken-1" text @click="close"> Cancel </v-btn>
-              <v-btn color="blue darken-1" text @click="save"> Save </v-btn>
+              <v-btn color="blue darken-1" text @click="close"> Cancelar </v-btn>
+              <v-btn color="blue darken-1" text @click="save"> Guardar </v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -151,6 +151,7 @@ export default {
       group: 0,
       age: 0,
     },
+    idDelete:null,
   }),
   computed: {
     formTitle() {
@@ -171,32 +172,7 @@ export default {
   },
   methods: {
     initialize() {
-      this.desserts = [
-        // {
-        //     name: "Carlos",
-        //     albumNumerus: 1,
-        //     gradus: 3,
-        //     group: "B",
-        //     age: 4,
-        //     pass: 123
-        // },
-        // {
-        //     name: "Felipe",
-        //     albumNumerus: 2,
-        //     gradus: 3,
-        //     group: "B",
-        //     age: 4,
-        //     pass: 123
-        // },
-        // {
-        //     name: "Ivan",
-        //     albumNumerus: 3,
-        //     gradus: 3,
-        //     group: "B",
-        //     age: 4,
-        //     pass: 123
-        // }
-      ];
+      this.desserts = [];
     },
     async getStudents() {
       const res = await this.axios.get("http://localhost:3000/students");
@@ -209,6 +185,8 @@ export default {
       this.dialog = true;
     },
     deleteItem(item) {
+      console.log("Item seleccionado",item._id);
+      this.idDelete = item._id;
       this.editedIndex = this.desserts.indexOf(item);
       this.editedItem = Object.assign({}, item);
       this.dialogDelete = true;
@@ -216,6 +194,9 @@ export default {
     deleteItemConfirm() {
       this.desserts.splice(this.editedIndex, 1);
       this.closeDelete();
+      let url = "http://localhost:3000/delete/" + this.idDelete;
+      const res =  this.axios.get(url);
+      
     },
     close() {
       this.dialog = false;
@@ -234,11 +215,8 @@ export default {
     save() {
       if (this.editedIndex > -1) {
         Object.assign(this.desserts[this.editedIndex], this.editedItem);
-        console.log("Entro al if", this.desserts);
       } else {
         this.desserts.push(this.editedItem);
-        console.log("Entro al else", this.editedItem);
-
         this.axios
           .post("http://localhost:3000/create",this.editedItem,
             {

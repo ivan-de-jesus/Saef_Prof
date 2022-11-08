@@ -32,12 +32,19 @@
           <span class="mr-2">Agregar alumno</span>
         </v-btn>
       </router-link>
+      <router-link to="Exercises">
+        <v-btn text>
+          <span class="mr-2">Crear ejercicios</span>
+        </v-btn>
+      </router-link>
       <router-link to="Dashboard">
         <v-btn text class="success">
           <span class="mr-2">Panel de control</span>
         </v-btn>
       </router-link>
-      
+
+    
+
     </v-app-bar>
 
     <v-main>

@@ -48,9 +48,7 @@
             </v-col>
             <v-col>
               <strong>Juan</strong>
-              <div class="text-caption">
-                Mobile App
-              </div>
+             
             </v-col>
           </v-row>
         </v-timeline-item>
@@ -65,9 +63,7 @@
             </v-col>
             <v-col>
               <strong>Carlos</strong>
-              <div class="text-caption mb-2">
-                Hangouts
-              </div>
+             
               <v-avatar>
                 <v-img
                   src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Kurt&hairColor=Red&facialHairType=BeardLight&facialHairColor=BrownDark&clotheType=GraphicShirt&clotheColor=Gray01&graphicType=Skull&eyeType=Wink&eyebrowType=RaisedExcitedNatural&mouthType=Disbelief&skinColor=Brown"
@@ -111,9 +107,7 @@
             </v-col>
             <v-col>
               <strong>Jose</strong>
-              <div class="text-caption">
-                Web App
-              </div>
+     
             </v-col>
           </v-row>
         </v-timeline-item>
